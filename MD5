@@ -1,0 +1,10 @@
+36311f6343cb92136414ce979d606320 *DESCRIPTION
+3360afbe3ceccc9e9074ac8cc6d1f707 *NAMESPACE
+dab67e72cd718c333ee7ef28edfadd88 *R/autocheck_question.R
+daa527873768d852246b7f6208bf5ab1 *README.md
+8bde05159cd7ed71853fdddf9654af2f *build/vignette.rds
+d0d59a0592a10705772c12e496f75932 *inst/doc/start_checkdown.R
+315185b08d824d4d6f0d9461d8055b9c *inst/doc/start_checkdown.Rmd
+b2ded9f4a93c0f5a2ec8b7e627aab105 *inst/doc/start_checkdown.html
+721b9a690fbccf37e686e03d43cb0fe6 *man/autocheck_question.Rd
+315185b08d824d4d6f0d9461d8055b9c *vignettes/start_checkdown.Rmd
