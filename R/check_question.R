@@ -4,9 +4,11 @@
 #' @param answer correct answer (can be a double or a string). It is possible to put here a vector of several answers.
 #' @param right form reaction on right answer
 #' @param wrong form reaction on wrong answer
+#' @param alignment logical argument for options' alignment: vertical if \code{TRUE}, horizontal if \code{FALSE}
 #' @param options vector of values for the selection list type
 #' @param button_label character value that will be displayed on the button
-#' @param type character that defines type of the list. Possible values: "select", "radio"
+#' @param random_answer_order logical argument that denotes whether answers should be shuffled
+#' @param type character that defines type of the list. Possible values: \code{select}, \code{radio}, \code{checkbox}
 #'
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
@@ -24,10 +26,12 @@
 check_question <- function(answer,
                            right = "Correct",
                            wrong = "I have a different answer",
-                           question_id = sample(1:1e5, 1),
                            options = NULL,
+                           type = "select",
+                           alignment = FALSE,
                            button_label = "check",
-                           type = "select") {
+                           random_answer_order = FALSE,
+                           question_id = sample(1:1e5, 1)) {
 
   if(knitr::is_html_output()){
     if(grepl("\\.", question_id)){
@@ -41,6 +45,10 @@ check_question <- function(answer,
                                        output = NULL,
                                        fragment.only = TRUE))
     wrong <- gsub("(<.?p>)|(\n)|(\\#)", "", wrong)
+    options <- if(random_answer_order){sample(options)} else {options}
+    alignment <- ifelse(alignment, " ", "<br>")
+    answer <- as.character(answer)
+
     if(is.null(options)){
       form <- paste(c('<input type="text" name="answer_',
                       question_id,
@@ -54,58 +62,111 @@ check_question <- function(answer,
                       "</select>"),
                     collapse = "")
     } else if(type == "radio"){
-      form <- paste0(paste(c('<input type="radio" name="answer_',
-                             question_id,
-                             '" id="'), collapse = ""),
-                     options,
+      form <- paste0('<input type="radio" name="answer_',
+                     question_id,
+                     '" id="',
+                     question_id,
+                     '_',
+                     seq_along(options),
                      '" value="',
                      options,
                      '"><label for="',
                      options,
                      '">',
                      options,
-                     '</label><br>',
+                     '</label>',
+                     alignment,
                      collapse = "")
-    }
+    } else if(type == "checkbox"){
+      form <- paste0('<input type="checkbox" id="answer_',
+                     question_id,
+                     '_',
+                     seq_along(options),
+                     '" value="',
+                     options,
+                     '"><label for="answer_',
+                     question_id,
+                     "_",
+                     seq_along(options),
+                     '">',
+                     options,
+                     '</label>',
+                     alignment,
+                     collapse = "")
+    } else {
+      stop("Possible values for the type variable: 'select', 'radio' or 'checkbox'")
 
+    }
+    form <- gsub(x = form, pattern = "<br>$", replacement = "")
     cat(paste0(c('<form name="form_',
                  question_id,
                  '" onsubmit="return validate_form_',
                  question_id,
                  '()" method="post">',
                  form,
-                 '<input type="submit" value="',
+                 '<br><input type="submit" value="',
                  button_label,
                  '"></form><p id="result_',
                  question_id,
                  '"></p>'),
                collapse = ""))
-    cat(
-      paste(
-        "<script>",
+    if(type != "checkbox"){
+      cat(
         paste(
-          'function validate_form_',
-          question_id,
-          '() {var x, text; var x = document.forms["form_',
-          question_id,
-          '"]["answer_',
-          question_id,
-          '"].value;',
-          'if (',
-          paste0('x == "', answer, '"', collapse = '|'),
-          '){',
-          'text = "',
-          right,
-          '";',
-          '} else {',
-          'text = "',
-          wrong,
-          '";} document.getElementById("result_',
-          question_id,
-          '").innerHTML = text; return false;}',
-          sep = "",
-          collapse = "\n"),
-        "</script>",
-        collapse = "\n"))
+          "<script>",
+          paste(
+            'function validate_form_',
+            question_id,
+            '() {var x, text; var x = document.forms["form_',
+            question_id,
+            '"]["answer_',
+            question_id,
+            '"].value;',
+            'if (',
+            paste0('x == "', answer, '"', collapse = '|'),
+            '){',
+            'text = "',
+            right,
+            '";',
+            '} else {',
+            'text = "',
+            wrong,
+            '";} document.getElementById("result_',
+            question_id,
+            '").innerHTML = text; return false;}',
+            sep = "",
+            collapse = "\n"),
+          "</script>",
+          collapse = "\n"))
+    } else {
+      cat(paste0(
+        '<script> ',
+        'function validate_form_',
+        question_id,
+        '() {',
+        'var text;',
+        paste0('var x',
+        seq_along(options),
+        ' = document.getElementById("',
+        'answer_',
+        question_id,
+        "_",
+        seq_along(options),
+        '");', collapse = ""),
+        'if (',
+        paste0('x',
+               seq_along(options),
+               '.checked == ',
+               tolower(options %in% answer),
+               collapse = "&"),
+        '){text = "',
+        right,
+        '";} else {text = "',
+        wrong,
+        '";} document.getElementById("result_',
+        question_id,
+        '").innerHTML = text; return false;}',
+        '</script>'))
+    }
   }
 }

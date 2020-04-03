@@ -24,6 +24,13 @@ check_question(answer =  1:5)
 check_question("banana", options = c("apple", "banana", "bread"))
 
 check_question("banana", options = c("apple", "banana", "bread"), type = "radio")
+check_question(c("banana", "apple"), options = c("apple", "banana", "bread"), type = "checkbox")
+
+## ---- results="asis"----------------------------------------------------------
+check_question("banana", options = c("apple", "banana", "bread"), type = "radio", alignment = TRUE)
+
+## ---- results="asis"----------------------------------------------------------
+check_question("banana", options = c("apple", "banana", "bread"), type = "radio", random_answer_order = TRUE)
 
 ## ---- results="asis"----------------------------------------------------------
 check_hint("You can use the rmarkdown package")
@@ -38,4 +45,8 @@ check_hint("* You can use the **`rmarkdown` package**",
 check_question(answer =  4, 
                wrong = "a**R**e you su**R**e", 
                right = "### `R`ight")
+
+## ---- results="asis"----------------------------------------------------------
+log(3/4)
+check_question(answer =  round(log(3/4), 6))
 

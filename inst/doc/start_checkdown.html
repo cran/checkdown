@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2020-03-18" />
+<meta name="date" content="2020-04-03" />
 
 <title>How to start with checkdown</title>
 
@@ -303,7 +303,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">How to start with <code>checkdown</code></h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2020-03-18</h4>
+<h4 class="date">2020-04-03</h4>
 
 
 
@@ -317,90 +317,114 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="demo" class="section level2">
 <h2>1. Demo</h2>
-<p>The main goal of this package to create checking fields and boxes in <code>rmarkdown</code>. It could be used in class, when teacher share materials and tasks, so student can solve some problems and check themselves. It is really important since some students are too shy to ask a question, so you can create tasks that will check on the fly the understanding of the class material and give some hints to those students that get stuck. In contrast with the <code>learnr</code> package the <code>checkdown</code> package works without shiny. Load the library:</p>
+<p>The main goal of this package to create checking fields and boxes in <code>rmarkdown</code>. It could be used in class, when teacher share materials and tasks, so student can solve some problems and check themselves. It is really important since some students are too shy to ask a question, so you can create tasks that will check on the fly the understanding of the class material and give some hints to those students that get stuck. In contrast to the <a href="https://rstudio.github.io/learnr/index.html"><code>learnr</code></a> package the <code>checkdown</code> package works without <code>shiny</code> and could be stored as a simple <code>.html</code> page (e. g. on Github Pages). In contrast to the <a href="http://www.r-exams.org/"><code>exams</code></a> output the <code>checkdown</code> package creates intaractive autochecking tasks. The interactive virsion of the <a href="http://www.r-exams.org/"><code>exams</code></a> output is bind to Blackboard Learn, that is really nice, but looks like an overkill for the simple task that <code>checkdown</code> solves.</p>
+<p>Load the library:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(checkdown)</span></code></pre></div>
 <div id="ask-question-with-the-check_question-function" class="section level3">
 <h3>1.1 Ask question with the <code>check_question()</code> function</h3>
 <p>Imagine that we want to create a checkbox with the answer 4. All you need is to create a following chunk with the chunck atribute <code>results=&#39;asis&#39;</code> in your <code>rmarkdown</code> document:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="dv">4</span>)</span></code></pre></div>
-<form name="form_43868" onsubmit="return validate_form_43868()" method="post">
-<input type="text" name="answer_43868"><input type="submit" value="check">
+<form name="form_49405" onsubmit="return validate_form_49405()" method="post">
+<input type="text" name="answer_49405"><br><input type="submit" value="check">
 </form>
-<p id="result_43868">
+<p id="result_49405">
 </p>
-<script> function validate_form_43868() {var x, text; var x = document.forms["form_43868"]["answer_43868"].value;if (x == "4"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_43868").innerHTML = text; return false;} </script>
+<script> function validate_form_49405() {var x, text; var x = document.forms["form_49405"]["answer_49405"].value;if (x == "4"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_49405").innerHTML = text; return false;} </script>
 <p>It is possible to change wrong and right answer’s messages using <code>wrong</code> and <code>right</code> arguments of the <code>check_question()</code> function. Let’s create some more questions.</p>
 <p>Solve 3+3:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="dv">6</span>, <span class="dt">right =</span> <span class="st">&quot;correct&quot;</span>, <span class="dt">wrong =</span> <span class="st">&quot;not correct&quot;</span>)</span></code></pre></div>
-<form name="form_84435" onsubmit="return validate_form_84435()" method="post">
-<input type="text" name="answer_84435"><input type="submit" value="check">
+<form name="form_61904" onsubmit="return validate_form_61904()" method="post">
+<input type="text" name="answer_61904"><br><input type="submit" value="check">
 </form>
-<p id="result_84435">
+<p id="result_61904">
 </p>
-<script> function validate_form_84435() {var x, text; var x = document.forms["form_84435"]["answer_84435"].value;if (x == "6"){text = "correct";} else {text = "not correct";} document.getElementById("result_84435").innerHTML = text; return false;} </script>
+<script> function validate_form_61904() {var x, text; var x = document.forms["form_61904"]["answer_61904"].value;if (x == "6"){text = "correct";} else {text = "not correct";} document.getElementById("result_61904").innerHTML = text; return false;} </script>
 <p>Type <em>la-la</em>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="st">&quot;la-la&quot;</span>)</span></code></pre></div>
-<form name="form_89122" onsubmit="return validate_form_89122()" method="post">
-<input type="text" name="answer_89122"><input type="submit" value="check">
+<form name="form_43254" onsubmit="return validate_form_43254()" method="post">
+<input type="text" name="answer_43254"><br><input type="submit" value="check">
 </form>
-<p id="result_89122">
+<p id="result_43254">
 </p>
-<script> function validate_form_89122() {var x, text; var x = document.forms["form_89122"]["answer_89122"].value;if (x == "la-la"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_89122").innerHTML = text; return false;} </script>
+<script> function validate_form_43254() {var x, text; var x = document.forms["form_43254"]["answer_43254"].value;if (x == "la-la"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_43254").innerHTML = text; return false;} </script>
 <p>Number of answers is not limited:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span></code></pre></div>
-<form name="form_11520" onsubmit="return validate_form_11520()" method="post">
-<input type="text" name="answer_11520"><input type="submit" value="check">
+<form name="form_46886" onsubmit="return validate_form_46886()" method="post">
+<input type="text" name="answer_46886"><br><input type="submit" value="check">
 </form>
-<p id="result_11520">
+<p id="result_46886">
 </p>
-<script> function validate_form_11520() {var x, text; var x = document.forms["form_11520"]["answer_11520"].value;if (x == "1"|x == "2"|x == "3"|x == "4"|x == "5"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_11520").innerHTML = text; return false;} </script>
+<script> function validate_form_46886() {var x, text; var x = document.forms["form_46886"]["answer_46886"].value;if (x == "1"|x == "2"|x == "3"|x == "4"|x == "5"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_46886").innerHTML = text; return false;} </script>
 <p>It is also possible to create a list of answers for students to choose:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="dt">options =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>))</span></code></pre></div>
-<form name="form_87758" onsubmit="return validate_form_87758()" method="post">
-<select name="answer_87758"><option> apple </option><option> banana </option><option> bread </option></select><input type="submit" value="check">
+<form name="form_207" onsubmit="return validate_form_207()" method="post">
+<select name="answer_207"><option> apple </option><option> banana </option><option> bread </option></select><br><input type="submit" value="check">
 </form>
-<p id="result_87758">
+<p id="result_207">
 </p>
-<script> function validate_form_87758() {var x, text; var x = document.forms["form_87758"]["answer_87758"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_87758").innerHTML = text; return false;} </script>
+<script> function validate_form_207() {var x, text; var x = document.forms["form_207"]["answer_207"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_207").innerHTML = text; return false;} </script>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="dt">options =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;radio&quot;</span>)</span></code></pre></div>
-<form name="form_85030" onsubmit="return validate_form_85030()" method="post">
-<input type="radio" name="answer_85030" id="apple" value="apple"><label for="apple">apple</label><br><input type="radio" name="answer_85030" id="banana" value="banana"><label for="banana">banana</label><br><input type="radio" name="answer_85030" id="bread" value="bread"><label for="bread">bread</label><br><input type="submit" value="check">
+<form name="form_40694" onsubmit="return validate_form_40694()" method="post">
+<input type="radio" name="answer_40694" id="40694_1" value="apple"><label for="apple">apple</label><br><input type="radio" name="answer_40694" id="40694_2" value="banana"><label for="banana">banana</label><br><input type="radio" name="answer_40694" id="40694_3" value="bread"><label for="bread">bread</label><br><input type="submit" value="check">
 </form>
-<p id="result_85030">
+<p id="result_40694">
 </p>
-<script> function validate_form_85030() {var x, text; var x = document.forms["form_85030"]["answer_85030"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_85030").innerHTML = text; return false;} </script>
+<script> function validate_form_40694() {var x, text; var x = document.forms["form_40694"]["answer_40694"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_40694").innerHTML = text; return false;} </script>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">check_question</span>(<span class="kw">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>), <span class="dt">options =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;checkbox&quot;</span>)</span></code></pre></div>
+<form name="form_64037" onsubmit="return validate_form_64037()" method="post">
+<input type="checkbox" id="answer_64037_1" value="apple"><label for="answer_64037_1">apple</label><br><input type="checkbox" id="answer_64037_2" value="banana"><label for="answer_64037_2">banana</label><br><input type="checkbox" id="answer_64037_3" value="bread"><label for="answer_64037_3">bread</label><br><input type="submit" value="check">
+</form>
+<p id="result_64037">
+</p>
+<script> function validate_form_64037() {var text;var x1 = document.getElementById("answer_64037_1");var x2 = document.getElementById("answer_64037_2");var x3 = document.getElementById("answer_64037_3");if (x1.checked == true&x2.checked == true&x3.checked == false){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_64037").innerHTML = text; return false;}</script>
+<p>If the list of possible answers is small, it is possible to align them in one line using <code>alignment</code> argument:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="dt">options =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;radio&quot;</span>, <span class="dt">alignment =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<form name="form_85591" onsubmit="return validate_form_85591()" method="post">
+<input type="radio" name="answer_85591" id="85591_1" value="apple"><label for="apple">apple</label> <input type="radio" name="answer_85591" id="85591_2" value="banana"><label for="banana">banana</label> <input type="radio" name="answer_85591" id="85591_3" value="bread"><label for="bread">bread</label> <br><input type="submit" value="check">
+</form>
+<p id="result_85591">
+</p>
+<script> function validate_form_85591() {var x, text; var x = document.forms["form_85591"]["answer_85591"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_85591").innerHTML = text; return false;} </script>
+<p>You can shuffle answers using the <code>random_answer_order</code> argument:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="dt">options =</span> <span class="kw">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;radio&quot;</span>, <span class="dt">random_answer_order =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<form name="form_67598" onsubmit="return validate_form_67598()" method="post">
+<input type="radio" name="answer_67598" id="67598_1" value="banana"><label for="banana">banana</label><br><input type="radio" name="answer_67598" id="67598_2" value="apple"><label for="apple">apple</label><br><input type="radio" name="answer_67598" id="67598_3" value="bread"><label for="bread">bread</label><br><input type="submit" value="check">
+</form>
+<p id="result_67598">
+</p>
+<script> function validate_form_67598() {var x, text; var x = document.forms["form_67598"]["answer_67598"].value;if (x == "banana"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_67598").innerHTML = text; return false;} </script>
 </div>
 <div id="give-some-hints-with-the-check_hint-function" class="section level3">
 <h3>1.2 Give some hints with the <code>check_hint()</code> function</h3>
 <p>Sometimes you now in advance what kind of mistakes will your students do. Some students are shy and don’t like ask questions, so hints could partially solve this problem. Again all you need is to create a following chunk with the chunck atribute <code>results=&#39;asis&#39;</code> in your <code>rmarkdown</code> document:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>)</span></code></pre></div>
-<p id="hint_31555" , onclick="return show_hint_31555()">Click here to see/close the hint</p>
-<p id="result_31555">
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>)</span></code></pre></div>
+<p id="hint_21528" , onclick="return show_hint_21528()">Click here to see/close the hint</p>
+<p id="result_21528">
 </p>
-<script> function show_hint_31555() {var x = document.getElementById("result_31555").innerHTML;if(!x){document.getElementById("result_31555").innerHTML = "You can use the rmarkdown package";}else {document.getElementById("result_31555").innerHTML = "";}}</script>
+<script> function show_hint_21528() {var x = document.getElementById("result_21528").innerHTML;if(!x){document.getElementById("result_21528").innerHTML = "You can use the rmarkdown package";}else {document.getElementById("result_21528").innerHTML = "";}}</script>
 <p>Of course it is possible to change the message:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>,</span>
-<span id="cb11-2"><a href="#cb11-2"></a>           <span class="dt">click_text =</span> <span class="st">&quot;CLICK HERE&quot;</span>)</span></code></pre></div>
-<p id="hint_38318" , onclick="return show_hint_38318()">CLICK HERE</p>
-<p id="result_38318">
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>,</span>
+<span id="cb14-2"><a href="#cb14-2"></a>           <span class="dt">click_text =</span> <span class="st">&quot;CLICK HERE&quot;</span>)</span></code></pre></div>
+<p id="hint_55264" , onclick="return show_hint_55264()">CLICK HERE</p>
+<p id="result_55264">
 </p>
-<script> function show_hint_38318() {var x = document.getElementById("result_38318").innerHTML;if(!x){document.getElementById("result_38318").innerHTML = "You can use the rmarkdown package";}else {document.getElementById("result_38318").innerHTML = "";}}</script>
+<script> function show_hint_55264() {var x = document.getElementById("result_55264").innerHTML;if(!x){document.getElementById("result_55264").innerHTML = "You can use the rmarkdown package";}else {document.getElementById("result_55264").innerHTML = "";}}</script>
 <p>It is possible to use Markdown inside messages:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;* You can use the **`rmarkdown` package**&quot;</span>,</span>
-<span id="cb12-2"><a href="#cb12-2"></a>           <span class="dt">click_text =</span> <span class="st">&quot;Click he`R`e&quot;</span>)</span></code></pre></div>
-<p id="hint_83784" , onclick="return show_hint_83784()">Click he<code>R</code>e</p>
-<p id="result_83784">
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">check_hint</span>(<span class="st">&quot;* You can use the **`rmarkdown` package**&quot;</span>,</span>
+<span id="cb15-2"><a href="#cb15-2"></a>           <span class="dt">click_text =</span> <span class="st">&quot;Click he`R`e&quot;</span>)</span></code></pre></div>
+<p id="hint_40850" , onclick="return show_hint_40850()">Click he<code>R</code>e</p>
+<p id="result_40850">
 </p>
-<script> function show_hint_83784() {var x = document.getElementById("result_83784").innerHTML;if(!x){document.getElementById("result_83784").innerHTML = "<ul><li>You can use the <strong><code>rmarkdown</code> package</strong></li></ul>";}else {document.getElementById("result_83784").innerHTML = "";}}</script>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="dv">4</span>, </span>
-<span id="cb13-2"><a href="#cb13-2"></a>               <span class="dt">wrong =</span> <span class="st">&quot;a**R**e you su**R**e&quot;</span>, </span>
-<span id="cb13-3"><a href="#cb13-3"></a>               <span class="dt">right =</span> <span class="st">&quot;### `R`ight&quot;</span>)</span></code></pre></div>
-<form name="form_49480" onsubmit="return validate_form_49480()" method="post">
-<input type="text" name="answer_49480"><input type="submit" value="check">
+<script> function show_hint_40850() {var x = document.getElementById("result_40850").innerHTML;if(!x){document.getElementById("result_40850").innerHTML = "<ul><li>You can use the <strong><code>rmarkdown</code> package</strong></li></ul>";}else {document.getElementById("result_40850").innerHTML = "";}}</script>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="dv">4</span>, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>               <span class="dt">wrong =</span> <span class="st">&quot;a**R**e you su**R**e&quot;</span>, </span>
+<span id="cb16-3"><a href="#cb16-3"></a>               <span class="dt">right =</span> <span class="st">&quot;### `R`ight&quot;</span>)</span></code></pre></div>
+<form name="form_39350" onsubmit="return validate_form_39350()" method="post">
+<input type="text" name="answer_39350"><br><input type="submit" value="check">
 </form>
-<p id="result_49480">
+<p id="result_39350">
 </p>
-<script> function validate_form_49480() {var x, text; var x = document.forms["form_49480"]["answer_49480"].value;if (x == "4"){text = "<h3><code>R</code>ight</h3>";} else {text = "a<strong>R</strong>e you su<strong>R</strong>e";} document.getElementById("result_49480").innerHTML = text; return false;} </script>
+<script> function validate_form_39350() {var x, text; var x = document.forms["form_39350"]["answer_39350"].value;if (x == "4"){text = "<h3><code>R</code>ight</h3>";} else {text = "a<strong>R</strong>e you su<strong>R</strong>e";} document.getElementById("result_39350").innerHTML = text; return false;} </script>
 </div>
 </div>
 <div id="some-important-notes" class="section level2">
@@ -408,7 +432,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <ul>
 <li>It is possible to avoid code in the output <code>.html</code>. Just use the chunk argument <code>echo=FALSE</code>.</li>
 <li>For now the package <code>checkdown</code> works only with html output and will not print anything for other otputs.</li>
+<li>Be careful with number precision: rounding could be different on different computers so if you ask your student to calculate <code>log(3/4)</code> it is possible that they will see only 6 or 7 numbers after the comma. So it make sence explicitly specify precision using <code>round()</code> function.</li>
 </ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">log</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>)</span></code></pre></div>
+<p>[1] -0.2876821</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">check_question</span>(<span class="dt">answer =</span>  <span class="kw">round</span>(<span class="kw">log</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>), <span class="dv">6</span>))</span></code></pre></div>
+<form name="form_31609" onsubmit="return validate_form_31609()" method="post">
+<input type="text" name="answer_31609"><br><input type="submit" value="check">
+</form>
+<p id="result_31609">
+</p>
+<script> function validate_form_31609() {var x, text; var x = document.forms["form_31609"]["answer_31609"].value;if (x == "-0.287682"){text = "Correct";} else {text = "I have a different answer";} document.getElementById("result_31609").innerHTML = text; return false;} </script>
 </div>
 
 
