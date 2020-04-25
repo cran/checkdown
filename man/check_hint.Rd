@@ -6,16 +6,19 @@
 \usage{
 check_hint(
   hint_text,
-  click_text = "Click here to see/close the hint",
+  hint_title = "Click here to see/close the hint",
   hint_id = sample(1:1e+05, 1)
 )
 }
 \arguments{
 \item{hint_text}{hint paragraph text; can contain markdown}
 
-\item{click_text}{click paragraph text; can contain markdown}
+\item{hint_title}{click paragraph text; can contain markdown}
 
 \item{hint_id}{unique identidier of the question}
+}
+\value{
+returns the html and javascript code
 }
 \description{
 Create check-fields and check-boxes for 'rmarkdown'
