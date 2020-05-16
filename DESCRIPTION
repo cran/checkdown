@@ -1,7 +1,7 @@
 Package: checkdown
 Type: Package
 Title: Check-Fields and Check-Boxes for 'rmarkdown'
-Version: 0.0.4
+Version: 0.0.5
 Depends: R (>= 3.5.0)
 Author: George Moroz
 Maintainer: George Moroz <agricolamz@gmail.com>
@@ -15,6 +15,6 @@ Encoding: UTF-8
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-04-25 18:11:02 UTC; agricolamz
+Packaged: 2020-05-16 19:02:53 UTC; agricolamz
 Repository: CRAN
-Date/Publication: 2020-04-25 18:40:07 UTC
+Date/Publication: 2020-05-17 00:30:03 UTC

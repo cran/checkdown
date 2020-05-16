@@ -33,6 +33,9 @@ check_question("banana", options = c("apple", "banana", "bread"), type = "radio"
 check_question("banana", options = c("apple", "banana", "bread"), type = "radio", random_answer_order = TRUE)
 
 ## ---- results="asis"----------------------------------------------------------
+check_question(NULL, options = c("apple", "banana", "bread"), type = "radio")
+
+## ---- results="asis"----------------------------------------------------------
 check_hint("You can use the rmarkdown package")
 
 ## ---- results="asis"----------------------------------------------------------
@@ -40,7 +43,7 @@ check_hint("You can use the rmarkdown package",
            hint_title = "CLICK HERE")
 
 ## ---- results="asis"----------------------------------------------------------
-check_hint("* You can use the `markdown` **inside** the [`chcekdown` package](https://agricolamz.github.io/checkdown/)",
+check_hint("* You can use `markdown` **inside** the [`chcekdown` package](https://agricolamz.github.io/checkdown/)",
            hint_title = "Click he`R`e")
 check_question(answer =  4, 
                wrong = "a**R**e you su**R**e", 
