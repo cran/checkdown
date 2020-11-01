@@ -1,7 +1,7 @@
-d144cec0023557d32b59b082b87bde00 *DESCRIPTION
+aaa07e886154ecb008e3ab81adbd3d84 *DESCRIPTION
 a1a0e623814cea6bbc017acf3e6f6d1b *NAMESPACE
-49e04bf71433e432ff944f3d48812f9e *NEWS
-5b293c96af8b7a3c562b6071a4fdd506 *R/check_hint.R
+a8041cf3f55fe162c2538c122a40ec50 *NEWS
+867082840ddbd4990bc7af0ad79da022 *R/check_hint.R
 a1c11e1a5ee8130ebd1735bea60077d5 *R/check_hints.R
 d1fc0d1b21ce5497e8d07bcf81b0cfe1 *R/check_question.R
 4d4d0b4b690f0e0c682d47efec805d48 *R/insert_images.R
@@ -9,7 +9,7 @@ d1fc0d1b21ce5497e8d07bcf81b0cfe1 *R/check_question.R
 d35808d8f97155ca78f880e01d36dd98 *inst/CITATION
 702ec6d808304f9039549593e7ffc0e2 *inst/doc/start_checkdown.R
 2c6564a918b92f13d96c78313fd056c2 *inst/doc/start_checkdown.Rmd
-b39e39f467da2dc1348da39193a806d6 *inst/doc/start_checkdown.html
+e9b3c1f63cb63b543618cabad53e2add *inst/doc/start_checkdown.html
 d3ec3d9053a43159d88fc81ed52a60f7 *man/check_hint.Rd
 145a3da1a71ae24f1739ef651f598a68 *man/check_hints.Rd
 e8abfc46df412e0440b97924a90f86e9 *man/check_question.Rd
