@@ -28,11 +28,11 @@ check_hint <- function(hint_text,
 
   type <- match.arg(type)
 
-    if(grepl("\\.", hint_id)){
+  if(grepl("\\.", hint_id)){
       hint_id <- gsub("\\.", "_", hint_id)
-    }
+  }
 
-    hint_text <- hint_text |>
+  hint_text <- hint_text |>
       markdown::markdownToHTML(text = _,
                                output = NULL,
                                fragment.only = TRUE) |>
@@ -55,7 +55,7 @@ check_hint <- function(hint_text,
                      hint_title),
       htmltools::div(id = glue::glue('result_{hint_id}'),
                      onclick = glue::glue('return show_hint_{hint_id}()')),
-      htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
+      htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text[[1]]}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
     } else if(type == "ondblclick"){
       htmltools::tagList(
         htmltools::div(id = glue::glue('hint_{hint_id}'),
@@ -63,7 +63,7 @@ check_hint <- function(hint_text,
                        hint_title),
         htmltools::div(id = glue::glue('result_{hint_id}'),
                        ondblclick = glue::glue('return show_hint_{hint_id}()')),
-        htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
+        htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text[[1]]}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
     } else if(type == "onmouseover"){
       htmltools::tagList(
         htmltools::div(id = glue::glue('hint_{hint_id}'),
@@ -71,6 +71,6 @@ check_hint <- function(hint_text,
                        hint_title),
         htmltools::div(id = glue::glue('result_{hint_id}'),
                        onmouseover = glue::glue('return show_hint_{hint_id}()')),
-        htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
+        htmltools::HTML(glue::glue("<script>function show_hint_{hint_id}(){{var x = document.getElementById('result_{hint_id}').innerHTML; if(!x){{document.getElementById('result_{hint_id}').innerHTML = '{hint_text[[1]]}';}} else {{document.getElementById('result_{hint_id}').innerHTML = '';}}}}</script>")))
     }
 }

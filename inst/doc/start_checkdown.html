@@ -12,7 +12,7 @@
 
 <meta name="author" content="George Moroz" />
 
-<meta name="date" content="2023-08-27" />
+<meta name="date" content="2023-09-10" />
 
 <title>How to start with checkdown</title>
 
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">How to start with
 <code>checkdown</code></h1>
 <h4 class="author">George Moroz</h4>
-<h4 class="date">2023-08-27</h4>
+<h4 class="date">2023-09-10</h4>
 
 
 
@@ -356,17 +356,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="demo" class="section level2">
 <h2>1. Demo</h2>
 <p>The main goal of this package to create checking fields and boxes in
-<code>rmarkdown</code>. It could be used in class, when teacher share
-materials and tasks (as an <code>.html</code> page or an
-<code>.html</code> slides), so student can solve some problems and check
-themselves. It is really important since some students are too shy to
-ask a question, so you can create tasks that will check on the fly the
-understanding of the class material and give some hints to those
-students that get stuck. In contrast to the <a href="https://rstudio.github.io/learnr/index.html"><code>learnr</code></a>
-package the <code>checkdown</code> package works without
+<code>rmarkdown</code> or <code>quarto</code>. It could be used in
+class, when teacher share materials and tasks (as an <code>.html</code>
+page or an <code>.html</code> slides), so student can solve some
+problems and check themselves. It is really important since some
+students are too shy to ask a question, so you can create tasks that
+will check on the fly the understanding of the class material and give
+some hints to those students that get stuck. In contrast to the <a href="https://rstudio.github.io/learnr/index.html"><code>learnr</code></a>
+package the <code>checkdown</code> package works serverlessly without
 <code>shiny</code> and could be stored as a simple <code>.html</code>
 page (e. g. on Github Pages). In contrast to the <a href="https://www.r-exams.org/"><code>exams</code></a> output the
-<code>checkdown</code> package creates interactive autochecking tasks.
+<code>checkdown</code> package creates interactive auto-grading tasks.
 The interactive version of the <a href="https://www.r-exams.org/"><code>exams</code></a> output is bind to
 Blackboard Learn, that is really nice, but looks like an overkill for
 the simple task that <code>checkdown</code> solves.</p>
@@ -379,141 +379,276 @@ function</h3>
 need is to create a following chunk in your <code>rmarkdown</code>
 document:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">4</span>)</span></code></pre></div>
-<form name="form_35110" onsubmit="return validate_form_35110()" method="post">
-<input type="text" placeholder name="answer_35110"></input>
+<form name="form_75915" onsubmit="return validate_form_75915()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder name="answer_75915"></input>
 <input type="submit" value="check"></input>
-<div id="result_35110"></div>
+<div id="result_75915"></div>
+</fieldset>
 </form>
-<script>function validate_form_35110() {var x, text; var x = document.forms['form_35110']['answer_35110'].value;if (x == '4'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_35110').innerHTML = text; return false;}</script>
+<script>function validate_form_75915() {var x, text; var x = document.forms['form_75915']['answer_75915'].value;if (x == '4'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_75915').innerHTML = text; return false;}</script>
 <p>It is possible to change wrong and right answer’s messages using
 <code>wrong</code> and <code>right</code> arguments of the
 <code>check_question()</code> function. Let’s create some more
 questions.</p>
 <p>Solve 3+3:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">6</span>, <span class="at">right =</span> <span class="st">&quot;correct&quot;</span>, <span class="at">wrong =</span> <span class="st">&quot;not correct&quot;</span>)</span></code></pre></div>
-<form name="form_19324" onsubmit="return validate_form_19324()" method="post">
-<input type="text" placeholder name="answer_19324"></input>
+<form name="form_1292" onsubmit="return validate_form_1292()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder name="answer_1292"></input>
 <input type="submit" value="check"></input>
-<div id="result_19324"></div>
+<div id="result_1292"></div>
+</fieldset>
 </form>
-<script>function validate_form_19324() {var x, text; var x = document.forms['form_19324']['answer_19324'].value;if (x == '6'){text = 'correct';} else {text = 'not correct';} document.getElementById('result_19324').innerHTML = text; return false;}</script>
+<script>function validate_form_1292() {var x, text; var x = document.forms['form_1292']['answer_1292'].value;if (x == '6'){text = 'correct';} else {text = 'not correct';} document.getElementById('result_1292').innerHTML = text; return false;}</script>
 <p>Type <em>la-la</em>:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="st">&quot;la-la&quot;</span>)</span></code></pre></div>
-<form name="form_29514" onsubmit="return validate_form_29514()" method="post">
-<input type="text" placeholder name="answer_29514"></input>
+<form name="form_76693" onsubmit="return validate_form_76693()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder name="answer_76693"></input>
 <input type="submit" value="check"></input>
-<div id="result_29514"></div>
+<div id="result_76693"></div>
+</fieldset>
 </form>
-<script>function validate_form_29514() {var x, text; var x = document.forms['form_29514']['answer_29514'].value;if (x == 'la-la'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_29514').innerHTML = text; return false;}</script>
+<script>function validate_form_76693() {var x, text; var x = document.forms['form_76693']['answer_76693'].value;if (x == 'la-la'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_76693').innerHTML = text; return false;}</script>
 <p>It is possible to use <code>placeholder</code> argument in order to
 show what kind of answer you expect:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="st">&quot;la-la&quot;</span>, <span class="at">placeholder =</span> <span class="st">&quot;ta-ta-ta&quot;</span>)</span></code></pre></div>
-<form name="form_75112" onsubmit="return validate_form_75112()" method="post">
-<input type="text" placeholder="ta-ta-ta" name="answer_75112"></input>
+<form name="form_73801" onsubmit="return validate_form_73801()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder="ta-ta-ta" name="answer_73801"></input>
 <input type="submit" value="check"></input>
-<div id="result_75112"></div>
+<div id="result_73801"></div>
+</fieldset>
 </form>
-<script>function validate_form_75112() {var x, text; var x = document.forms['form_75112']['answer_75112'].value;if (x == 'la-la'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_75112').innerHTML = text; return false;}</script>
+<script>function validate_form_73801() {var x, text; var x = document.forms['form_73801']['answer_73801'].value;if (x == 'la-la'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_73801').innerHTML = text; return false;}</script>
 <p>Number of answers is not limited:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span></code></pre></div>
-<form name="form_82213" onsubmit="return validate_form_82213()" method="post">
-<input type="text" placeholder name="answer_82213"></input>
+<form name="form_36776" onsubmit="return validate_form_36776()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder name="answer_36776"></input>
 <input type="submit" value="check"></input>
-<div id="result_82213"></div>
+<div id="result_36776"></div>
+</fieldset>
 </form>
-<script>function validate_form_82213() {var x, text; var x = document.forms['form_82213']['answer_82213'].value;if (x == '1'|x == '2'|x == '3'|x == '4'|x == '5'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_82213').innerHTML = text; return false;}</script>
+<script>function validate_form_36776() {var x, text; var x = document.forms['form_36776']['answer_36776'].value;if (x == '1'|x == '2'|x == '3'|x == '4'|x == '5'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_36776').innerHTML = text; return false;}</script>
 <p>It is also possible to create a list of answers for students to
 choose:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;select&quot;</span>)</span></code></pre></div>
-<form name="form_59904" onsubmit="return validate_form_59904()" method="post">
-<select name="answer_59904">
+<form name="form_61977" onsubmit="return validate_form_61977()" method="post">
+<fieldset>
+<legend></legend>
+<select name="answer_61977">
 <option>apple</option>
 <option>banana</option>
 <option>bread</option>
 </select>
 <input type="submit" value="check"></input>
-<div id="result_59904"></div>
+<div id="result_61977"></div>
+</fieldset>
 </form>
-<script>function validate_form_59904() {var x, text; var x = document.forms['form_59904']['answer_59904'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_59904').innerHTML = text; return false;}</script>
+<script>function validate_form_61977() {var x, text; var x = document.forms['form_61977']['answer_61977'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_61977').innerHTML = text; return false;}</script>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>)</span></code></pre></div>
-<form name="form_60543" onsubmit="return validate_form_60543()" method="post">
-<input type="radio" name="answer_60543" id="answer_60543_1" value="apple"></input>
+<form name="form_6764" onsubmit="return validate_form_6764()" method="post">
+<fieldset>
+<legend></legend>
+<input type="radio" name="answer_6764" id="answer_6764_1" value="apple"></input>
 <label>apple</label>
 <br />
-<input type="radio" name="answer_60543" id="answer_60543_2" value="banana"></input>
+<input type="radio" name="answer_6764" id="answer_6764_2" value="banana"></input>
 <label>banana</label>
 <br />
-<input type="radio" name="answer_60543" id="answer_60543_3" value="bread"></input>
+<input type="radio" name="answer_6764" id="answer_6764_3" value="bread"></input>
 <label>bread</label>
 <br />
 <input type="submit" value="check"></input>
-<div id="result_60543"></div>
+<div id="result_6764"></div>
+</fieldset>
 </form>
-<script>function validate_form_60543() {var x, text; var x = document.forms['form_60543']['answer_60543'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_60543').innerHTML = text; return false;}</script>
+<script>function validate_form_6764() {var x, text; var x = document.forms['form_6764']['answer_6764'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_6764').innerHTML = text; return false;}</script>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="fu">c</span>(<span class="st">&quot;banana&quot;</span>, <span class="st">&quot;apple&quot;</span>), <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;checkbox&quot;</span>)</span></code></pre></div>
-<form name="form_41448" onsubmit="return validate_form_41448()" method="post">
-<input type="checkbox" id="answer_41448_1" value="apple"></input>
+<form name="form_93390" onsubmit="return validate_form_93390()" method="post">
+<fieldset>
+<legend></legend>
+<input type="checkbox" id="answer_93390_1" value="apple"></input>
 <label>apple</label>
 <br />
-<input type="checkbox" id="answer_41448_2" value="banana"></input>
+<input type="checkbox" id="answer_93390_2" value="banana"></input>
 <label>banana</label>
 <br />
-<input type="checkbox" id="answer_41448_3" value="bread"></input>
+<input type="checkbox" id="answer_93390_3" value="bread"></input>
 <label>bread</label>
 <br />
 <input type="submit" value="check"></input>
-<div id="result_41448"></div>
+<div id="result_93390"></div>
+</fieldset>
 </form>
-<script>function validate_form_41448() {var text; var x1 = document.getElementById('answer_41448_1'); var x2 = document.getElementById('answer_41448_2'); var x3 = document.getElementById('answer_41448_3'); if (x1.checked == true&x2.checked == true&x3.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_41448').innerHTML = text; return false;}</script>
+<script>function validate_form_93390() {var text; var x1 = document.getElementById('answer_93390_1'); var x2 = document.getElementById('answer_93390_2'); var x3 = document.getElementById('answer_93390_3'); if (x1.checked == true&x2.checked == true&x3.checked == false){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_93390').innerHTML = text; return false;}</script>
 <p>If the list of possible answers is small, it is possible to align
 them in one line using <code>alignment</code> argument:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>, <span class="at">alignment =</span> <span class="st">&quot;horizontal&quot;</span>)</span></code></pre></div>
-<form name="form_64802" onsubmit="return validate_form_64802()" method="post">
-<input type="radio" name="answer_64802" id="answer_64802_1" value="apple"></input>
+<form name="form_46588" onsubmit="return validate_form_46588()" method="post">
+<fieldset>
+<legend></legend>
+<input type="radio" name="answer_46588" id="answer_46588_1" value="apple"></input>
 <label>apple</label>
-<input type="radio" name="answer_64802" id="answer_64802_2" value="banana"></input>
+<input type="radio" name="answer_46588" id="answer_46588_2" value="banana"></input>
 <label>banana</label>
-<input type="radio" name="answer_64802" id="answer_64802_3" value="bread"></input>
+<input type="radio" name="answer_46588" id="answer_46588_3" value="bread"></input>
 <label>bread</label>
 <input type="submit" value="check"></input>
-<div id="result_64802"></div>
+<div id="result_46588"></div>
+</fieldset>
 </form>
-<script>function validate_form_64802() {var x, text; var x = document.forms['form_64802']['answer_64802'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_64802').innerHTML = text; return false;}</script>
+<script>function validate_form_46588() {var x, text; var x = document.forms['form_46588']['answer_46588'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_46588').innerHTML = text; return false;}</script>
 <p>You can shuffle answers using the <code>random_answer_order</code>
 argument:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="st">&quot;banana&quot;</span>, <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>, <span class="at">random_answer_order =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<form name="form_41891" onsubmit="return validate_form_41891()" method="post">
-<input type="radio" name="answer_41891" id="answer_41891_1" value="banana"></input>
+<form name="form_2822" onsubmit="return validate_form_2822()" method="post">
+<fieldset>
+<legend></legend>
+<input type="radio" name="answer_2822" id="answer_2822_1" value="banana"></input>
 <label>banana</label>
 <br />
-<input type="radio" name="answer_41891" id="answer_41891_2" value="bread"></input>
-<label>bread</label>
-<br />
-<input type="radio" name="answer_41891" id="answer_41891_3" value="apple"></input>
+<input type="radio" name="answer_2822" id="answer_2822_2" value="apple"></input>
 <label>apple</label>
 <br />
+<input type="radio" name="answer_2822" id="answer_2822_3" value="bread"></input>
+<label>bread</label>
+<br />
 <input type="submit" value="check"></input>
-<div id="result_41891"></div>
+<div id="result_2822"></div>
+</fieldset>
 </form>
-<script>function validate_form_41891() {var x, text; var x = document.forms['form_41891']['answer_41891'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_41891').innerHTML = text; return false;}</script>
+<script>function validate_form_2822() {var x, text; var x = document.forms['form_2822']['answer_2822'].value;if (x == 'banana'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_2822').innerHTML = text; return false;}</script>
 <p>If you don’t want to give the possibility of automatically check your
 question, just put <code>NULL</code> in the <code>answer</code>
 argument:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="cn">NULL</span>, <span class="at">options =</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;bread&quot;</span>), <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>)</span></code></pre></div>
-<form name="form_27504" onsubmit="return validate_form_27504()" method="post">
-<input type="radio" name="answer_27504" id="answer_27504_1" value="apple"></input>
+<form name="form_22889" onsubmit="return validate_form_22889()" method="post">
+<fieldset>
+<legend></legend>
+<input type="radio" name="answer_22889" id="answer_22889_1" value="apple"></input>
 <label>apple</label>
 <br />
-<input type="radio" name="answer_27504" id="answer_27504_2" value="banana"></input>
+<input type="radio" name="answer_22889" id="answer_22889_2" value="banana"></input>
 <label>banana</label>
 <br />
-<input type="radio" name="answer_27504" id="answer_27504_3" value="bread"></input>
+<input type="radio" name="answer_22889" id="answer_22889_3" value="bread"></input>
 <label>bread</label>
 <br />
 <input type="submit" value="check"></input>
-<div id="result_27504"></div>
+<div id="result_22889"></div>
+</fieldset>
 </form>
-<script>function validate_form_27504() {var x, text; var x = document.forms['form_27504']['answer_27504'].value;if (x == ''){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_27504').innerHTML = text; return false;}</script>
+<script>function validate_form_22889() {var x, text; var x = document.forms['form_22889']['answer_22889'].value;if (x == ''){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_22889').innerHTML = text; return false;}</script>
+<p>There is also an experimental type of question <code>in_order</code>,
+wheere students need to drag and drop words in the correct order:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="fu">c</span>(<span class="st">&quot;What&quot;</span>, <span class="st">&quot;do&quot;</span>, <span class="st">&quot;you&quot;</span>, <span class="st">&quot;think?&quot;</span>), <span class="at">type =</span> <span class="st">&quot;in_order&quot;</span>)</span></code></pre></div>
+<form name="form_62316" onsubmit="return validate_form_62316()" method="post">
+<fieldset>
+<legend></legend>
+<table>
+<tr id="task_62316">
+<td id="answer_62316_1" style="padding:5px; border:1px solid #ccc;">What</td>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsH(this);">⇆</button>
+</td>
+<td id="answer_62316_4" style="padding:5px; border:1px solid #ccc;">think?</td>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsH(this);">⇆</button>
+</td>
+<td id="answer_62316_2" style="padding:5px; border:1px solid #ccc;">do</td>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsH(this);">⇆</button>
+</td>
+<td id="answer_62316_3" style="padding:5px; border:1px solid #ccc;">you</td>
+</tr>
+</table>
+<input type="submit" value="check"></input>
+<div id="result_62316"></div>
+</fieldset>
+</form>
+<script>function validate_form_62316() {var text;var ch = document.getElementById('task_62316').children; if(ch[0].id == 'answer_62316_1'&ch[2].id == 'answer_62316_2'&ch[4].id == 'answer_62316_3'&ch[6].id == 'answer_62316_4'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_62316').innerHTML = text; return false;}function swapElementsH(element) {const parent = element.parentNode; const afterNode = parent.nextElementSibling; const beforeNode = parent.previousElementSibling; parent.insertAdjacentElement('beforebegin', afterNode); parent.insertAdjacentElement('afterend', beforeNode);}</script>
+<p>In this type you need to provide correct order to the
+<code>answer</code> argument and options will be shuffled
+automatically.</p>
+<p>In case answers are long, it is possible to use vertical
+<code>alignment</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="fu">c</span>(<span class="st">&quot;heat the water&quot;</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>                 <span class="st">&quot;place a tea bag into the cup&quot;</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>                 <span class="st">&quot;pour the hot water over the tea bag&quot;</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>                 <span class="st">&quot;steep the tea bag into cup&quot;</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>                 <span class="st">&quot;remove the tea bag&quot;</span>), </span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">&quot;in_order&quot;</span>, <span class="at">alignment =</span> <span class="st">&quot;vertical&quot;</span>)</span></code></pre></div>
+<form name="form_16698" onsubmit="return validate_form_16698()" method="post">
+<fieldset>
+<legend></legend>
+<table>
+<tbody id="task_16698">
+<tr>
+<td id="answer_16698_1" style="padding:5px; border:1px solid #ccc;">heat the water</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsV(this);">⇅</button>
+</td>
+</tr>
+<tr>
+<td id="answer_16698_3" style="padding:5px; border:1px solid #ccc;">pour the hot water over the tea bag</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsV(this);">⇅</button>
+</td>
+</tr>
+<tr>
+<td id="answer_16698_2" style="padding:5px; border:1px solid #ccc;">place a tea bag into the cup</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsV(this);">⇅</button>
+</td>
+</tr>
+<tr>
+<td id="answer_16698_4" style="padding:5px; border:1px solid #ccc;">steep the tea bag into cup</td>
+</tr>
+<tr>
+<td style="padding:5px">
+<button type="button" onclick="swapElementsV(this);">⇅</button>
+</td>
+</tr>
+<tr>
+<td id="answer_16698_5" style="padding:5px; border:1px solid #ccc;">remove the tea bag</td>
+</tr>
+</tbody>
+</table>
+<input type="submit" value="check"></input>
+<div id="result_16698"></div>
+</fieldset>
+</form>
+<script>function validate_form_16698() {var text;var ch = document.getElementById('task_16698').children; if(ch[0].children[0].id == 'answer_16698_1'&ch[2].children[0].id == 'answer_16698_2'&ch[4].children[0].id == 'answer_16698_3'&ch[6].children[0].id == 'answer_16698_4'&ch[8].children[0].id == 'answer_16698_5'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_16698').innerHTML = text; return false;}function swapElementsV(element) {const parent = element.parentNode.parentNode; const afterNode = parent.nextElementSibling; const beforeNode = parent.previousElementSibling; parent.insertAdjacentElement('beforebegin', afterNode); parent.insertAdjacentElement('afterend', beforeNode);}</script>
+<p>You can put the question itself within the
+<code>check_question()</code> function using the <code>title</code>
+argument.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">42</span>, <span class="at">title =</span> <span class="st">&quot;Put a number from 1 to 100&quot;</span>)</span></code></pre></div>
+<form name="form_3024" onsubmit="return validate_form_3024()" method="post">
+<fieldset>
+<legend>Put a number from 1 to 100</legend>
+<input type="text" placeholder name="answer_3024"></input>
+<input type="submit" value="check"></input>
+<div id="result_3024"></div>
+</fieldset>
+</form>
+<script>function validate_form_3024() {var x, text; var x = document.forms['form_3024']['answer_3024'].value;if (x == '42'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_3024').innerHTML = text; return false;}</script>
+<p>It is possible to put some markdown markup whithin the
+<code>title</code> argument. Since this argument wraps the form contents
+with tags, you can redefine it appearance with CSS.</p>
 </div>
 <div id="give-some-hints-with-the-check_hint-function" class="section level3">
 <h3>1.2 Give some hints with the <code>check_hint()</code> function</h3>
@@ -522,60 +657,70 @@ students do. Some students are shy and don’t like asking questions, so
 hints could partially solve this problem. Again all you need is to
 create a following chunk with the chunck atribute
 <code>results=&#39;asis&#39;</code> in your <code>rmarkdown</code> document:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>)</span></code></pre></div>
-<div id="hint_44002" onclick="return show_hint_44002()">Click here to see/close the hint</div>
-<div id="result_44002" onclick="return show_hint_44002()"></div>
-<script>function show_hint_44002(){var x = document.getElementById('result_44002').innerHTML; if(!x){document.getElementById('result_44002').innerHTML = 'You can use the rmarkdown package';} else {document.getElementById('result_44002').innerHTML = '';}}</script>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package&quot;</span>)</span></code></pre></div>
+<div id="hint_76389" onclick="return show_hint_76389()">Click here to see/close the hint</div>
+<div id="result_76389" onclick="return show_hint_76389()"></div>
+<script>function show_hint_76389(){var x = document.getElementById('result_76389').innerHTML; if(!x){document.getElementById('result_76389').innerHTML = 'You can use the rmarkdown package';} else {document.getElementById('result_76389').innerHTML = '';}}</script>
 <p>Of course it is possible to change the message of the part that
 should be clicked, just use the <code>hint_title</code> argument:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;CLICK HERE&quot;</span>)</span></code></pre></div>
-<div id="hint_26066" onclick="return show_hint_26066()">CLICK HERE</div>
-<div id="result_26066" onclick="return show_hint_26066()"></div>
-<script>function show_hint_26066(){var x = document.getElementById('result_26066').innerHTML; if(!x){document.getElementById('result_26066').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_26066').innerHTML = '';}}</script>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;🔎 CLICK HERE&quot;</span>)</span></code></pre></div>
+<div id="hint_25564" onclick="return show_hint_25564()">🔎 CLICK HERE</div>
+<div id="result_25564" onclick="return show_hint_25564()"></div>
+<script>function show_hint_25564(){var x = document.getElementById('result_25564').innerHTML; if(!x){document.getElementById('result_25564').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_25564').innerHTML = '';}}</script>
 <p>By default you need to click on the hint in order to make it appear,
 but this behaviour can be changed with the <code>type</code>
 argument:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;Put mouse over here&quot;</span>,</span>
-<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;onmouseover&quot;</span>)</span></code></pre></div>
-<div id="hint_80409" onmouseover="return show_hint_80409()">Put mouse over here</div>
-<div id="result_80409" onmouseover="return show_hint_80409()"></div>
-<script>function show_hint_80409(){var x = document.getElementById('result_80409').innerHTML; if(!x){document.getElementById('result_80409').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_80409').innerHTML = '';}}</script>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;Double click here&quot;</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;ondblclick&quot;</span>)</span></code></pre></div>
-<div id="hint_78849" ondblclick="return show_hint_78849()">Double click here</div>
-<div id="result_78849" ondblclick="return show_hint_78849()"></div>
-<script>function show_hint_78849(){var x = document.getElementById('result_78849').innerHTML; if(!x){document.getElementById('result_78849').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_78849').innerHTML = '';}}</script>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;🔎 Put mouse over here&quot;</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;onmouseover&quot;</span>)</span></code></pre></div>
+<div id="hint_17168" onmouseover="return show_hint_17168()">🔎 Put mouse over here</div>
+<div id="result_17168" onmouseover="return show_hint_17168()"></div>
+<script>function show_hint_17168(){var x = document.getElementById('result_17168').innerHTML; if(!x){document.getElementById('result_17168').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_17168').innerHTML = '';}}</script>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;You can use the rmarkdown package inside checkdown&quot;</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;🔎 Double click here&quot;</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>           <span class="at">type =</span> <span class="st">&quot;ondblclick&quot;</span>)</span></code></pre></div>
+<div id="hint_81313" ondblclick="return show_hint_81313()">🔎 Double click here</div>
+<div id="result_81313" ondblclick="return show_hint_81313()"></div>
+<script>function show_hint_81313(){var x = document.getElementById('result_81313').innerHTML; if(!x){document.getElementById('result_81313').innerHTML = 'You can use the rmarkdown package inside checkdown';} else {document.getElementById('result_81313').innerHTML = '';}}</script>
 <p>It is possible to use Markdown inside messages:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;- You can use `markdown` **inside** the [`chcekdown` package](https://agricolamz.github.io/checkdown/)&quot;</span>,</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;Click he`R`e&quot;</span>)</span></code></pre></div>
-<div id="hint_47328" onclick="return show_hint_47328()">Click he<code>R</code>e</div>
-<div id="result_47328" onclick="return show_hint_47328()"></div>
-<script>function show_hint_47328(){var x = document.getElementById('result_47328').innerHTML; if(!x){document.getElementById('result_47328').innerHTML = '<ul><li>You can use <code>markdown</code> <strong>inside</strong> the <a href="https://agricolamz.github.io/checkdown/"><code>chcekdown</code> package</a></li></ul>';} else {document.getElementById('result_47328').innerHTML = '';}}</script>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">4</span>, </span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>               <span class="at">wrong =</span> <span class="st">&quot;a**R**e you su**R**e?&quot;</span>, </span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>               <span class="at">right =</span> <span class="st">&quot;### `R`ight&quot;</span>)</span></code></pre></div>
-<form name="form_78369" onsubmit="return validate_form_78369()" method="post">
-<input type="text" placeholder name="answer_78369"></input>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;- You can use `markdown` **inside** the [`chcekdown` package](https://agricolamz.github.io/checkdown/)&quot;</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>           <span class="at">hint_title =</span> <span class="st">&quot;Click he`R`e&quot;</span>)</span></code></pre></div>
+<div id="hint_27064" onclick="return show_hint_27064()">Click he<code>R</code>e</div>
+<div id="result_27064" onclick="return show_hint_27064()"></div>
+<script>function show_hint_27064(){var x = document.getElementById('result_27064').innerHTML; if(!x){document.getElementById('result_27064').innerHTML = '<ul><li>You can use <code>markdown</code> <strong>inside</strong> the <a href="https://agricolamz.github.io/checkdown/"><code>chcekdown</code> package</a></li></ul>';} else {document.getElementById('result_27064').innerHTML = '';}}</script>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">4</span>, </span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>               <span class="at">wrong =</span> <span class="st">&quot;a**R**e you su**R**e?&quot;</span>, </span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a>               <span class="at">right =</span> <span class="st">&quot;### `R`ight&quot;</span>)</span></code></pre></div>
+<form name="form_72369" onsubmit="return validate_form_72369()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder name="answer_72369"></input>
 <input type="submit" value="check"></input>
-<div id="result_78369"></div>
+<div id="result_72369"></div>
+</fieldset>
 </form>
-<script>function validate_form_78369() {var x, text; var x = document.forms['form_78369']['answer_78369'].value;if (x == '4'){text = '<h3 id="right"><code>R</code>ight</h3>';} else {text = 'a<strong>R</strong>e you su<strong>R</strong>e?';} document.getElementById('result_78369').innerHTML = text; return false;}</script>
+<script>function validate_form_72369() {var x, text; var x = document.forms['form_72369']['answer_72369'].value;if (x == '4'){text = '<h3 id="right"><code>R</code>ight</h3>';} else {text = 'a<strong>R</strong>e you su<strong>R</strong>e?';} document.getElementById('result_72369').innerHTML = text; return false;}</script>
 <p>There is also a function for multiple hints:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">check_hints</span>(<span class="at">hint_text =</span> <span class="fu">c</span>(<span class="st">&quot;look into the hint 2&quot;</span>, <span class="st">&quot;look into the hint 1&quot;</span>),</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>            <span class="at">hint_title =</span> <span class="fu">c</span>(<span class="st">&quot;hint 1&quot;</span>, <span class="st">&quot;hint 2&quot;</span>), </span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>            <span class="at">list_title =</span> <span class="st">&quot;list of hints&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">check_hints</span>(<span class="at">hint_text =</span> <span class="fu">c</span>(<span class="st">&quot;look into the hint 2&quot;</span>, <span class="st">&quot;look into the hint 1&quot;</span>),</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>            <span class="at">hint_title =</span> <span class="fu">c</span>(<span class="st">&quot;hint 1&quot;</span>, <span class="st">&quot;hint 2&quot;</span>), </span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>            <span class="at">list_title =</span> <span class="st">&quot;list of hints&quot;</span>)</span></code></pre></div>
 <details>
 <summary>list of hints</summary>
-<div id="hint_6982" onclick="return show_hint_6982()">hint 1</div>
-<div id="result_6982" onclick="return show_hint_6982()"></div>
-<script>function show_hint_6982(){var x = document.getElementById('result_6982').innerHTML; if(!x){document.getElementById('result_6982').innerHTML = 'look into the hint 2';} else {document.getElementById('result_6982').innerHTML = '';}}</script>
-<div id="hint_22888" onclick="return show_hint_22888()">hint 2</div>
-<div id="result_22888" onclick="return show_hint_22888()"></div>
-<script>function show_hint_22888(){var x = document.getElementById('result_22888').innerHTML; if(!x){document.getElementById('result_22888').innerHTML = 'look into the hint 1';} else {document.getElementById('result_22888').innerHTML = '';}}</script>
+<div id="hint_30999" onclick="return show_hint_30999()">hint 1</div>
+<div id="result_30999" onclick="return show_hint_30999()"></div>
+<script>function show_hint_30999(){var x = document.getElementById('result_30999').innerHTML; if(!x){document.getElementById('result_30999').innerHTML = 'look into the hint 2';} else {document.getElementById('result_30999').innerHTML = '';}}</script>
+<div id="hint_1771" onclick="return show_hint_1771()">hint 2</div>
+<div id="result_1771" onclick="return show_hint_1771()"></div>
+<script>function show_hint_1771(){var x = document.getElementById('result_1771').innerHTML; if(!x){document.getElementById('result_1771').innerHTML = 'look into the hint 1';} else {document.getElementById('result_1771').innerHTML = '';}}</script>
 </details>
+<p>It is worth mentioning that <code>\n</code> will be removed from
+<code>hint_text</code> and <code>hint_title</code> arguments, so in case
+you want to have a new line use html tag <code>&lt;br&gt;</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="at">hint_text =</span> <span class="st">&quot;this&lt;br&gt;is&lt;br&gt;a&lt;br&gt;multiline&lt;br&gt;sentence&quot;</span>)</span></code></pre></div>
+<div id="hint_34378" onclick="return show_hint_34378()">Click here to see/close the hint</div>
+<div id="result_34378" onclick="return show_hint_34378()"></div>
+<script>function show_hint_34378(){var x = document.getElementById('result_34378').innerHTML; if(!x){document.getElementById('result_34378').innerHTML = 'this<br>is<br>a<br>multiline<br>sentence';} else {document.getElementById('result_34378').innerHTML = '';}}</script>
 </div>
 </div>
 <div id="inserting-images" class="section level2">
@@ -584,49 +729,50 @@ argument:</p>
 useful to insert images in hints. In order to do it you need to use
 <code>insert_images()</code> function, and enumerate the correct
 answer.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">3</span>, </span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>               <span class="at">options =</span> <span class="fu">insert_images</span>(<span class="fu">c</span>(<span class="st">&quot;windows.png&quot;</span>, </span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>                                         <span class="st">&quot;mac.png&quot;</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>                                         <span class="st">&quot;linux.png&quot;</span>), </span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>                                       <span class="at">image_width =</span> <span class="dv">30</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="dv">3</span>, </span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>               <span class="at">type =</span> <span class="st">&quot;radio&quot;</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>               <span class="at">options =</span> <span class="fu">insert_images</span>(<span class="fu">c</span>(<span class="st">&quot;windows.png&quot;</span>, </span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>                                         <span class="st">&quot;mac.png&quot;</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>                                         <span class="st">&quot;linux.png&quot;</span>), </span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>                                       <span class="at">image_width =</span> <span class="dv">30</span>))</span></code></pre></div>
 <p>Arguments <code>image_width</code> and <code>image_height</code> also
 except vector of values in case you need different size for different
-pictures. It is also possible to create a picture during the session,
-save it and use in <code>checkdown</code> functions.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">&quot;.png&quot;</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mtcars, <span class="fu">aes</span>(mpg, disp)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> tmp)</span></code></pre></div>
-<p>Let’s use obtained picture in the hint (notice, how I used percantage
-in the <code>image_width</code> argument):</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="fu">paste</span>(<span class="st">&quot;Here is our plot: &lt;br&gt;&quot;</span>, </span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>                 <span class="fu">insert_images</span>(tmp, <span class="at">image_width =</span> <span class="st">&quot;40%&quot;</span>)))</span></code></pre></div>
-<p>It looks like it is better to change font size, if you want to change
-the size of the picture.</p>
+pictures.</p>
+<p>In case you want to use pictures within hints, it is better to use
+markdown markup for it:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">check_hint</span>(<span class="st">&quot;Here is a map: &lt;br&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="st">![](https://upload.wikimedia.org/wikipedia/commons/f/f7/EU-Greece_%28orthographic_projection%29.svg){width=10%}&quot;</span>)</span></code></pre></div>
 </div>
 <div id="some-important-notes" class="section level2">
 <h2>3. Some important notes</h2>
 <ul>
 <li>It is possible to avoid code in the output <code>.html</code>. Just
 use the chunk argument <code>echo=FALSE</code>.</li>
+<li>It is possible to reduce values for <code>type</code> and
+<code>alignment</code> arguments to the first letter (e. g.
+<code>type = &quot;s&quot;</code> instead of <code>type = &quot;select&quot;</code>).</li>
 <li>For now the package <code>checkdown</code> works only with html
 output and will not print anything for other outputs.</li>
-<li>Be careful with number precision: rounding could be different on
-different computers so if you ask your student to calculate
-<code>log(3/4)</code> it is possible that they will see only 6 or 7
+<li>Be careful with number precision: printing could be different on
+different computers so if you ask your students to calculate
+<code>log(3/4)</code>, it is possible that they will see only 6 or 7
 numbers after the comma. So it make sense explicitly specify precision
-using <code>round()</code> function.</li>
+using <code>round()</code> function. In that case it make sense to use
+the <code>placeholder</code> argument signaling to students information
+about number of symbols after the comma).</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="fu">log</span>(<span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] -0.2876821</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>), <span class="dv">6</span>))</span></code></pre></div>
-<form name="form_56647" onsubmit="return validate_form_56647()" method="post">
-<input type="text" placeholder name="answer_56647"></input>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="fu">check_question</span>(<span class="at">answer =</span> <span class="fu">round</span>(<span class="fu">log</span>(<span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>), <span class="dv">5</span>), <span class="at">placeholder =</span> <span class="st">&quot;0.12345&quot;</span>)</span></code></pre></div>
+<form name="form_86791" onsubmit="return validate_form_86791()" method="post">
+<fieldset>
+<legend></legend>
+<input type="text" placeholder="0.12345" name="answer_86791"></input>
 <input type="submit" value="check"></input>
-<div id="result_56647"></div>
+<div id="result_86791"></div>
+</fieldset>
 </form>
-<script>function validate_form_56647() {var x, text; var x = document.forms['form_56647']['answer_56647'].value;if (x == '-0.287682'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_56647').innerHTML = text; return false;}</script>
+<script>function validate_form_86791() {var x, text; var x = document.forms['form_86791']['answer_86791'].value;if (x == '-0.28768'){text = 'Correct';} else {text = 'I have a different answer';} document.getElementById('result_86791').innerHTML = text; return false;}</script>
 </div>
 
 
