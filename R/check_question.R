@@ -20,9 +20,7 @@
 #' @author George Moroz <agricolamz@gmail.com>
 #' @examples
 #'
-#' # ```{r, echo=FALSE}
-#' # check_question(answer = 5)
-#' # ```
+#' check_question(answer = 5)
 #'
 #' @export
 #'
@@ -49,6 +47,12 @@ check_question <- function(answer,
 
 # polish arguments --------------------------------------------------------
 
+  lapply(c(right, wrong, button_label, placeholder), function(argument){
+    stopifnot(is.character(argument))
+    stopifnot(length(argument) == 1)
+  })
+
+
   if(is.null(options)){
     type <- match.arg(type, c("text", "in_order"))
   } else {
@@ -65,11 +69,6 @@ check_question <- function(answer,
     q_id <- gsub("\\.", "_", q_id)
   }
 
-  placeholder <- as.character(placeholder[1])
-  right <- as.character(right[1])
-  wrong <- as.character(wrong[1])
-  title <- as.character(title[1])
-
   right <- right |>
     markdown::markdownToHTML(text = _,
                              output = NULL,
@@ -84,12 +83,15 @@ check_question <- function(answer,
     gsub("(<.?p>)|(\n)|(\\#)", "", x = _) |>
     htmltools::HTML()
 
+  if(!is.null(title[1])){
+  title <- as.character(title[1])
   title <- title |>
     markdown::markdownToHTML(text = _,
                              output = NULL,
                              fragment.only = TRUE) |>
     gsub("(<.?p>)|(\n)|(\\#)", "", x = _) |>
     htmltools::HTML()
+  }
 
   answer <- if(!is.null(answer)){answer |> as.character() |> unique()}
 
@@ -169,7 +171,7 @@ check_question <- function(answer,
 
       UI_part <- answers |>
         htmltools::tags$tr(id = glue::glue("task_{q_id}")) |>
-        htmltools::tags$table()
+        htmltools::tags$table(`data-quarto-disable-processing` = "true")
 
       } else if(alignment == "vertical"){
         answers <- lapply(answer_sample, function(i){
@@ -192,10 +194,8 @@ check_question <- function(answer,
 
         UI_part <- answers |>
           htmltools::tags$tbody(id = glue::glue("task_{q_id}")) |>
-          htmltools::tags$table()
+          htmltools::tags$table(`data-quarto-disable-processing` = "true")
       }
-
-
   }
 
   if(!is.null(title)){
