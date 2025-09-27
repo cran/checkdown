@@ -1,9 +1,9 @@
-## ---- eval=FALSE--------------------------------------------------------------
-#  install.packages("checkdown")
+## ----eval=FALSE---------------------------------------------------------------
+# install.packages("checkdown")
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  install.packages("remotes")
-#  remotes::install_github("agricolamz/checkdown")
+## ----eval=FALSE---------------------------------------------------------------
+# install.packages("remotes")
+# remotes::install_github("agricolamz/checkdown")
 
 ## -----------------------------------------------------------------------------
 library(checkdown)
@@ -85,17 +85,17 @@ check_hints(hint_text = c("look into the hint 2", "look into the hint 1"),
 ## -----------------------------------------------------------------------------
 check_hint(hint_text = "this<br>is<br>a<br>multiline<br>sentence")
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  check_question(answer = 3,
-#                 type = "radio",
-#                 options = insert_images(c("windows.png",
-#                                           "mac.png",
-#                                           "linux.png"),
-#                                         image_width = 30))
+## -----------------------------------------------------------------------------
+check_question(answer = 3, 
+               type = "radio",
+               options = insert_images(c("windows.png", 
+                                         "mac.png",
+                                         "linux.png"), 
+                                       image_width = 30))
 
-## ---- eval=FALSE--------------------------------------------------------------
-#  check_hint("Here is a map: <br>
-#  ![](https://upload.wikimedia.org/wikipedia/commons/f/f7/EU-Greece_%28orthographic_projection%29.svg){width=10%}")
+## -----------------------------------------------------------------------------
+check_hint("Here is a map: <br>
+![](https://upload.wikimedia.org/wikipedia/commons/f/f7/EU-Greece_%28orthographic_projection%29.svg){width=10%}")
 
 ## -----------------------------------------------------------------------------
 log(3/4)
